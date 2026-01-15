@@ -38,3 +38,4 @@ This repository uses the MIT License. See the LICENSE file for details.
 ## Contact
 
 Repository: https://github.com/freakersmind/test-github-actions
+
