@@ -20,7 +20,7 @@ jobs:
         with:
           # Define your regex pattern here. This example enforces the Conventional Commits format:
           # e.g., 'feat: Add new feature' or 'fix(scope): Fix a bug'
-          pattern: '^(?i)(SPDF|BREP)-[0-9]+$'
+          pattern: '^(SPDF|BERP)-[0-9]+$'
           # Use the 'gm' flags for multi-line support if needed, otherwise 'm' is often enough
           flags: 'm'
           # Customize the error message when the pattern doesn't match
