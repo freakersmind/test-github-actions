@@ -1,0 +1,31 @@
+name: Commit Message Check
+on:
+  push:
+    branches:
+      - main
+      - 'releases/*' # Optional: check pushes to release branches
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize # Checks every time the PR is updated
+jobs:
+  check-commit-message:
+    name: Check Commit Message Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Commit Message
+        uses: gsactions/commit-message-checker@v2
+        with:
+          # Define your regex pattern here. This example enforces the Conventional Commits format:
+          # e.g., 'feat: Add new feature' or 'fix(scope): Fix a bug'
+          pattern: '^(?i)(SPDF|BREP)-[0-9]+$'
+          # Use the 'gm' flags for multi-line support if needed, otherwise 'm' is often enough
+          flags: 'm'
+          # Customize the error message when the pattern doesn't match
+          error: |
+            Your commit message does not follow the required format.
+            It must adhere to the Conventional Commits specification.
+            Example: 'feat(scope): Describe your change'
+            See 
